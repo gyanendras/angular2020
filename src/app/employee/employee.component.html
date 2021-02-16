@@ -1,0 +1,13 @@
+<h2>Employee is!</h2>
+<p>{{emp.id}}</p>
+<p>{{emp.fname}}</p>
+<p>{{emp.lname}}</p>
+
+<table>
+    <tr *ngFor="let emp of emps">
+        <td>
+        {{emp.fname}}, {{emp.lname}},
+        {{emp.id}}
+      </td>
+    </tr>
+  </table>
