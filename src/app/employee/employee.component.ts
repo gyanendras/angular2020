@@ -20,7 +20,10 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.empService.getEmployees().subscribe(emps => {
       this.emps = emps;
-    });
+    },
+     (error) => {
+      console.log(error);
+      });
   }
 
 }
