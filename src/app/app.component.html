@@ -372,7 +372,10 @@
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
   <p>Details of Employee</p>
-  <app-employee></app-employee>
+  <ul>
+    <li><a routerLink="['emp-component',101]" routerLinkActive="active">Employee Component</a></li>
+    <li><a routerLink="['dept-component',10]" routerLinkActive="active">Department Component</a></li>
+  </ul>
 
   <input type="hidden" #selection>
 
