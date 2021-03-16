@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHandler, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient,HttpHandler, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs'; 
 import { catchError, retry } from 'rxjs/operators';
 
@@ -10,7 +10,16 @@ export class EmployeeService{
     constructor(private http: HttpClient) {}
 
     getEmployees() : Observable<any> {
-      return this.http.get<any>("http://localhost:7001/empJson").pipe(
+      
+      return this.http.get<any>("http://localhost:7001/empJson",
+      {
+        headers: new HttpHeaders()
+         .set('Authorization', "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYxNTQ0ODk3MywiZXhwIjoxNjE1NDUwMTczfQ.TLylC-6Ut3SSqH71kXQ9FSqJ9A74pb_9RAam76XFiyQ")
+       
+      }
+
+      
+      ).pipe(
         catchError(this.handleError)
       );
     }
